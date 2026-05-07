@@ -1,0 +1,9 @@
+bin/
+obj/
+*.user
+.vs/
+.idea/
+*.suo
+*.DotSettings.user
+chaos_logs.txt
+BenchmarkDotNet.Artifacts/

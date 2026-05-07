@@ -1,0 +1,53 @@
+root = true
+
+[*]
+indent_style              = space
+indent_size               = 4
+end_of_line               = lf
+charset                   = utf-8
+trim_trailing_whitespace  = true
+insert_final_newline      = true
+
+[*.cs]
+# Naming conventions
+dotnet_naming_rule.private_fields_underscored.symbols   = private_fields
+dotnet_naming_rule.private_fields_underscored.style     = underscore_prefix
+dotnet_naming_rule.private_fields_underscored.severity  = warning
+dotnet_naming_symbols.private_fields.applicable_kinds   = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_style.underscore_prefix.capitalization    = camel_case
+dotnet_naming_style.underscore_prefix.required_prefix   = _
+
+# Static readonly fields: s_ prefix (avoids confusion with instance state)
+dotnet_naming_rule.static_readonly.symbols              = static_readonly_fields
+dotnet_naming_rule.static_readonly.style                = s_prefix
+dotnet_naming_rule.static_readonly.severity             = warning
+dotnet_naming_symbols.static_readonly_fields.applicable_kinds = field
+dotnet_naming_symbols.static_readonly_fields.applicable_accessibilities = private
+dotnet_naming_symbols.static_readonly_fields.required_modifiers = static, readonly
+dotnet_naming_style.s_prefix.capitalization             = camel_case
+dotnet_naming_style.s_prefix.required_prefix           = s_
+
+# Code style
+csharp_style_var_for_built_in_types                     = false:warning
+csharp_style_var_when_type_is_apparent                  = true:suggestion
+csharp_prefer_braces                                    = when_multiline:warning
+csharp_style_pattern_matching_over_is_with_cast_check   = true:warning
+csharp_style_expression_bodied_methods                  = when_on_single_line:suggestion
+csharp_prefer_simple_using_statement                    = true:suggestion
+csharp_style_namespace_declarations                     = file_scoped:warning
+
+# Async
+dotnet_diagnostic.CA2007.severity                       = warning  # ConfigureAwait
+dotnet_diagnostic.CA1849.severity                       = warning  # Use async overloads
+
+# Performance
+dotnet_diagnostic.CA1825.severity                       = error    # Avoid zero-length array allocations
+dotnet_diagnostic.CA1826.severity                       = warning  # Use First/Last instead of ElementAt
+dotnet_diagnostic.CA1859.severity                       = warning  # Use concrete type for locals
+
+[*.{csproj,props,targets}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
