@@ -1,6 +1,6 @@
 # The Sieve
 
-A high-performance C# log processing pipeline designed to survive "Log Storms" — scenarios where a single error fires thousands of times per second and would ordinarily crush downstream systems.
+C# log processing pipeline designed to survive "Log Storms" scenarios where a single error fires thousands of times per second and would ordinarily crush downstream systems.
 
 The core goal was zero heap allocations on the hot path. Every design decision traces back to that constraint.
 
